@@ -17,6 +17,14 @@
         <mat-icon mat-list-icon>home</mat-icon>
         <span>Home</span>
       </a>
+
+      <a routerLink="./add"
+         mat-list-item
+         (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>add</mat-icon>
+        <span>Add new student</span>
+      </a>     
+      
       <a routerLink="./assist"
          mat-list-item
          (click)="sidenav.toggle()">
@@ -31,19 +39,7 @@
         <span>Grades</span>
       </a>
 
-      <a routerLink="./add"
-         mat-list-item
-         (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>add</mat-icon>
-        <span>Add new student</span>
-      </a>
-
-      <a routerLink="./edit:/id"
-         mat-list-item
-         (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>edit</mat-icon>
-        <span>Edit student</span>
-      </a>
+      
     </mat-nav-list>
   </mat-sidenav>
   <!-- end sidebar -->

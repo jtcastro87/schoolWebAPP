@@ -9,6 +9,7 @@ import { ListComponent } from './pages/list/list.component';
 import { StudentRoutingModule } from "./student-routing.module";
 import { AssistComponent } from './pages/assist/assist.component';
 import { GradeComponent } from './pages/grade/grade.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations:[
@@ -21,7 +22,8 @@ import { GradeComponent } from './pages/grade/grade.component';
   imports:[
     CommonModule,
     StudentRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
 
   ],
   exports:[]

@@ -1,6 +1,50 @@
 <h1>Student list</h1>
-<ul>
-  <li *ngFor="let item of listStudent">
-      {{ item.Student_name }} {{item.Student_lastname}}
-  </li>
-</ul>
+<form action="" class="control">
+  <input
+        (input)="searchStudent(termino.value)"
+        #termino
+        name="search" 
+        type="text"
+        placeholder="Search name" 
+        class="form-control">
+</form>
+<hr>
+<table class="table caption-top table-striped">
+  <thead>
+    <tr class="col">
+      <th scope="col" colspan="3">#</th>
+      <th scope="col" colspan="3">Name</th>
+      <th scope="col" colspan="3">Last name</th>
+      <th scope="col" colspan="3">Gender</th>
+      <th scope="col">Age</th>  
+      <th scope="col"></th>
+      <th scope="col"></th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of listStudent; let i = index">
+      <td >{{i + 1}}</td>
+      <td colspan="3">{{ item.Student_name }}</td>
+      <td colspan="3">{{item.Student_lastname}}</td>
+      <td colspan="3">{{item.Gender}}</td>
+      <td colspan="3">{{item.Age}}</td>      
+      <td colspan="3">
+        <a 
+            class="btn btn-primary btn-sm" 
+            [routerLink]="['/student/edit/',item.Student_id]" >Editar
+        </a>
+        
+        <button id="btn-delete"
+                (click)="removeStudent(item.Student_id)"
+                class="btn btn-danger btn-sm">
+                Remove</button>
+      </td>
+      <td>
+       
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>

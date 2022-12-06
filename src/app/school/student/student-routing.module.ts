@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'assist', component: AssistComponent },
       { path: 'grade', component: GradeComponent },
       { path: 'add', component: AddStudentComponent },
-      { path: 'edit:/id', component: AddStudentComponent },
+      { path: 'edit/:id', component: AddStudentComponent },
       { path: ':id', component: HomeComponent },
       { path: '**', redirectTo: 'list' }
     ]
