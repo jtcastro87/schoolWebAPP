@@ -2,8 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Student } from '../student/interfaces/Student.interface';
-import { StudentRes, StudentResponse } from '../student/interfaces/student-response.interface';
+import { StudentResponse } from '../student/interfaces/student-response.interface';
 import { StudentIDResponse } from '../student/interfaces/studentid.interface';
+import { assist } from '../student/interfaces/assist.interface';
+import { date } from '../student/interfaces/date.interface';
+import { ListStudentResponse } from '../student/interfaces/list-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -64,8 +67,17 @@ export class StudentService {
                   
   }
 
-  addAssist(id: number, absent:string):Observable<StudentResponse>{
-    return this.httpClient.post<StudentResponse>(`${this.baseUrl}/assist/add`,{id:id,absent:absent});
+  // Para el pase de la lista
+  addAssist(content:assist){
+    
+    return this.httpClient.post<any>(`${this.baseUrl}/assist/add`,content);
+  }
+
+  // Obtiene el historial del dia
+  searchAssist(content:date):Observable<any>{
+
+    return this.httpClient.post<ListStudentResponse>(`${this.baseUrl}/assist/getassists`,content);
+
   }
 
   
