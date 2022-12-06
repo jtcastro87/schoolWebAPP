@@ -9,18 +9,20 @@
         </div>
 
         <ul class="list-group listado">
-            <li
+            <li class="list-group-item "
                 *ngFor="let item of listStudent" 
                 class="list-group-item">
                 <span>{{item.Student_name }} {{item.Student_lastname}}</span>
                 <!--<label for="yes">Yes <input type="radio" name="absent-{{item.Student_id}}" value="Yes" id="yes"></label>
                 <label for="no">No <input type="radio" name="absent-{{item.Student_id}}" value="No" id="no"></label>-->
-                <button (click)="assistStudent(item.Student_id,'Yes')"
+                
+                    <button (click)="assistStudent(item.Student_id,'Yes')"
                         type="button" class="btn btn-primary btn-sm">yes</button>
                 
-                <button (click)="assistStudent(item.Student_id,'No')"
+                     <button (click)="assistStudent(item.Student_id,'No')"
                         type="button" class="btn btn-danger btn-sm">No</button>
 
+                             
             </li>
         </ul>
     </div>
@@ -32,11 +34,13 @@
         </div>
         <div class="input-group date" data-provide="datepicker">
             <input type="date" class="form-control" [(ngModel)]="date" name="date" >
+            
             <div class="input-group-addon">
                 <span class="glyphicon glyphicon-th"></span>
             </div>
             <button (click)="getDateAssist()" class="btn btn-secondary" >Search</button>
         </div>
+        <hr>
         <!-- Para los mensajes -->
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">

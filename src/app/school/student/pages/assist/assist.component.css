@@ -4,9 +4,7 @@ h1{
     margin-bottom: 50px;
 }
 
-.present{
-  text-align: right;
-}
+
 .listado{
     display: flex;
     flex-direction: column;
@@ -47,5 +45,5 @@ h1{
   }
   .present{
     
-    text-align: center;
+    text-align: right;
   }

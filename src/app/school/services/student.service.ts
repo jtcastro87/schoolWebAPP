@@ -16,9 +16,9 @@ export class StudentService {
 
   private baseUrl:string = 'http://192.168.122.181:5000/api';
 
-  public error:boolean = false;
+  //public error:boolean = false;
 
-  private result:Student | undefined;
+  //private result:Student | undefined;
  
   // Constructor
   constructor(private httpClient: HttpClient) { }
@@ -49,7 +49,7 @@ export class StudentService {
     this.httpClient.post<StudentResponse>(`${this.baseUrl}/student/add`,newStudent)
                    .subscribe(res =>{
                       if(res.Success === true){
-                        this.error = false;  
+                          
                       }  
                    },(err) =>{
                       console.log('Error =>',err)
