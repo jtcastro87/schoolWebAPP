@@ -16,7 +16,7 @@ export class StudentService {
   public error:boolean = false;
 
   private result:Student | undefined;
-
+ 
   // Constructor
   constructor(private httpClient: HttpClient) { }
 
@@ -24,6 +24,7 @@ export class StudentService {
   getStudent():Observable<StudentResponse>{
 
     return this.httpClient.get<StudentResponse>(`${this.baseUrl}/student/getall`)
+    
   }
 
   // Obtiene un estudiante por su ID
@@ -61,6 +62,10 @@ export class StudentService {
   removeStudent(id:number){
     return this.httpClient.delete<StudentResponse>(`${this.baseUrl}/student/remove/${id}`);                    
                   
+  }
+
+  addAssist(id: number, absent:string):Observable<StudentResponse>{
+    return this.httpClient.post<StudentResponse>(`${this.baseUrl}/assist/add`,{id:id,absent:absent});
   }
 
   

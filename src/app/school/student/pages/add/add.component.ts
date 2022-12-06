@@ -42,7 +42,8 @@ ngOnInit(): void {
       .pipe( 
         switchMap( ({ id }) => this.studenService.editStudent(id))
       )
-      .subscribe(resp => {        
+      .subscribe(resp => { 
+        this.title = "Edit student"       
         this.student = resp.Data;
         console.log(this.student)
         this.nameButtom = "Save"; 
@@ -60,7 +61,8 @@ ngOnInit(): void {
 
   private edit:boolean = false;
   public nameButtom: string = "Add";
-  save:boolean = false;   
+  save:boolean = false;
+  title:string = "Add new student";   
 
   // Para agregar
   SaveStudent(){

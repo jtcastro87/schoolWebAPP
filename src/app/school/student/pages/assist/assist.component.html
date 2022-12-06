@@ -1,1 +1,34 @@
-<p>assist works!</p>
+<h1>Assistance of the day</h1>
+
+<div class="row">
+    <div class="col">
+        <h2>List of the day</h2>
+        <ul class="list-group listado">
+            <li
+                *ngFor="let item of listStudent" 
+                class="list-group-item">
+                <span>{{item.Student_name }} {{item.Student_lastname}}</span>
+                <!--<label for="yes">Yes <input type="radio" name="absent-{{item.Student_id}}" value="Yes" id="yes"></label>
+                <label for="no">No <input type="radio" name="absent-{{item.Student_id}}" value="No" id="no"></label>-->
+                <button (click)="assistStudent(item.Student_id,'Yes')"
+                        type="button" class="btn btn-primary btn-sm">yes</button>
+                
+                <button (click)="assistStudent(item.Student_id,'No')"
+                        type="button" class="btn btn-danger btn-sm">No</button>
+
+            </li>
+        </ul>
+    </div>
+    <div class="col">
+        <h2>Historial</h2>
+        <div class="input-group date" data-provide="datepicker">
+            <input type="date" class="form-control">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+            <div class="row">
+                <button class="btn btn-secondary">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
