@@ -33,6 +33,12 @@ export class StudentService {
 
   }
 
+  // Busca por nombre
+  searchStudent(name: string):Observable<StudentResponse>{
+    return this.httpClient.post<StudentResponse>(`${this.baseUrl}/student/name`,{name: name});                        
+
+  }
+
   // Agrega nuevo estudiante
   addStudent(newStudent:Student){
 

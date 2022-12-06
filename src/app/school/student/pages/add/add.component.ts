@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { switchMap, timer } from 'rxjs';
 import { StudentService } from 'src/app/school/services/student.service';
 import { Student } from '../../interfaces/Student.interface';
 import { StudentRes } from '../../interfaces/student-response.interface';
@@ -80,10 +80,13 @@ ngOnInit(): void {
     else{
       this.studenService.updateStudent(this.student)
           .subscribe(resp =>{
-            console.log(resp);
-          })
-      
-      this.router.navigate(['./student'])
+            if(resp.Success)
+              this.save = true;
+            console.log(resp)
+          })      
+      // location.reload()
+    
+       
     }
     
 
