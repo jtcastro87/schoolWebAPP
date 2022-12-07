@@ -13,7 +13,7 @@ import { StudentRes } from '../../interfaces/student-response.interface';
       }
       
       form{
-        margin-bottom: px;
+        margin-bottom: 20px;
       }
     `
   ]

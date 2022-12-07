@@ -7,6 +7,8 @@ import { StudentIDResponse } from '../student/interfaces/studentid.interface';
 import { assist } from '../student/interfaces/assist.interface';
 import { date } from '../student/interfaces/date.interface';
 import { ListStudentResponse } from '../student/interfaces/list-response.interface';
+import { Grade } from '../student/interfaces/grade.interface';
+import { GradeResponse } from '../student/interfaces/grade-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -78,6 +80,18 @@ export class StudentService {
 
     return this.httpClient.post<ListStudentResponse>(`${this.baseUrl}/assist/getassists`,content);
 
+  }
+
+  // Envia las notas
+  addGrade(grade:Grade){
+
+    return this.httpClient.post<StudentResponse>(`${this.baseUrl}/rating/add`,grade)
+                   
+  }
+
+  // Obtiene las calificaciones
+  getGrades():Observable<GradeResponse>{
+    return this.httpClient.get<GradeResponse>(`${this.baseUrl}/rating/getall`)
   }
 
   
