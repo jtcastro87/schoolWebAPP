@@ -65,7 +65,7 @@
                    [(ngModel)]="grade.naturales">
         </div>    
         <!-- button -->
-        <div class="col-md-4">
+        <div class="col-md">
           <button class="btn btn-success col-md-12">Publish</button>
         </div>
       </form>
@@ -91,10 +91,10 @@
             <tr *ngFor="let studen of noteList; let i = index">
               <th scope="row">{{i + 1}}</th>
               <td colspan="">{{studen.Name}}</td>
-              <td colspan="">{{studen.Espanol }}</td>
-              <td colspan="">{{studen.Matematica}}</td>
-              <td colspan="">{{studen.Sociales}}</td>
-              <td colspan="">{{studen.Naturales}}</td>
+              <td colspan="">{{studen.Espanol | changeToLetter }}</td>
+              <td colspan="">{{studen.Matematica | changeToLetter}}</td>
+              <td colspan="">{{studen.Sociales | changeToLetter}}</td>
+              <td colspan="">{{studen.Naturales | changeToLetter}}</td>
              
             </tr>
           </tbody>

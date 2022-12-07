@@ -1,8 +1,6 @@
-import { formatNumber } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit  } from '@angular/core';
 import { StudentService } from 'src/app/school/services/student.service';
-import { GradeRes, GradeResponse } from '../../interfaces/grade-response.interface';
+import { GradeRes } from '../../interfaces/grade-response.interface';
 import { Grade } from '../../interfaces/grade.interface';
 import { StudentRes } from '../../interfaces/student-response.interface';
 

@@ -10,6 +10,7 @@ import { StudentRoutingModule } from "./student-routing.module";
 import { AssistComponent } from './pages/assist/assist.component';
 import { GradeComponent } from './pages/grade/grade.component';
 import { FormsModule } from "@angular/forms";
+import { ChangeToLetterPipe } from './pipe/change-to-letter.pipe';
 
 @NgModule({
   declarations:[
@@ -17,7 +18,8 @@ import { FormsModule } from "@angular/forms";
     HomeComponent,
     ListComponent,
     AssistComponent,
-    GradeComponent
+    GradeComponent,
+    ChangeToLetterPipe
   ],
   imports:[
     CommonModule,

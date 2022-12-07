@@ -8,6 +8,8 @@
               (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
+
+      
     </mat-toolbar>
 
     <mat-nav-list>
@@ -45,11 +47,15 @@
   <!-- end sidebar -->
 
   <!-- navbar -->
-  <mat-toolbar >
+  <mat-toolbar class=".barra">
     <button mat-icon-button
             (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
+    <span class="spacer"></span>
+    <button (click)="logout()" mat-button>
+      <mat-icon>logout</mat-icon> Logout
+     </button>
   </mat-toolbar>
 
   <div class="container">
