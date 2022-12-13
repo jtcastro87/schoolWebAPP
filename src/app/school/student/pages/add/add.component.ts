@@ -3,9 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, timer } from 'rxjs';
 import { StudentService } from 'src/app/school/services/student.service';
 import { Student } from '../../interfaces/Student.interface';
-import { StudentRes } from '../../interfaces/student-response.interface';
-import { timeStamp } from 'console';
 import { StudentID } from '../../interfaces/studentid.interface';
+
+
 
 @Component({
   selector: 'app-add-student',
@@ -34,7 +34,7 @@ export class AddStudentComponent implements OnInit {
   constructor(
     private studenService: StudentService,
     private activateRoute: ActivatedRoute,
-    private router:Router) { }
+    private router:Router ) { }
 
 
 ngOnInit(): void {
@@ -86,17 +86,12 @@ ngOnInit(): void {
               this.save = true;
             console.log(resp)
           })      
-      // location.reload()
-    
+      // location.reload()   
        
     }
-    
-
-
 
   }
-
-
+  
   
 
 }

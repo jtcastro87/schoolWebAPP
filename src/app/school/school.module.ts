@@ -3,14 +3,14 @@ import { StudentModule } from './student/student.module';
 import { TeacherModule } from './teacher/teacher.module';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from './search/search.component';
-import { ConfirmDeleteComponent } from './component/confirm-delete/confirm-delete.component';
+import { MessageDeleteDialogComponent } from './student/component/message-delete-dialog/message-delete-dialog.component';
+
+
 
 @NgModule({
   declarations: [
     SearchComponent,
-    ConfirmDeleteComponent,
-
-
+    MessageDeleteDialogComponent
   ],
   exports:[
     SearchComponent
@@ -20,6 +20,8 @@ import { ConfirmDeleteComponent } from './component/confirm-delete/confirm-delet
     RouterModule,
     StudentModule,
     TeacherModule
+    
+    
   ]
 })
 export class SchoolModule { }

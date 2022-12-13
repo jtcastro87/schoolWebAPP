@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFundPageComponent } from './not-fund-page/not-fund-page.component';
 
 const routes: Routes = [
+
   {
     path: 'auth',
     loadChildren:() => import('./auth/auth.module').then(auth => auth.AuthModule)
@@ -12,11 +13,7 @@ const routes: Routes = [
   {
     path: 'student',
     loadChildren:() => import('./school/student/student.module').then(m => m.StudentModule)
-  },
-  {
-    path: '',
-    loadChildren:() => import('./auth/auth.module').then(auth => auth.AuthModule)
-  },
+  },  
   {
     path: '404',
     component: NotFundPageComponent

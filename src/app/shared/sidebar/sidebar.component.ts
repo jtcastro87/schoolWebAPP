@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -6,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent  {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  @Output() sidenav: EventEmitter<any> = new EventEmitter();
+
+  toggle() {
+   this.sidenav.emit();
+   }
 
 }

@@ -9,6 +9,7 @@ import { date } from '../student/interfaces/date.interface';
 import { ListStudentResponse } from '../student/interfaces/list-response.interface';
 import { Grade } from '../student/interfaces/grade.interface';
 import { GradeResponse } from '../student/interfaces/grade-response.interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ import { GradeResponse } from '../student/interfaces/grade-response.interface';
 
 export class StudentService {
 
-  private baseUrl:string = 'http://192.168.122.181:5000/api';
+  private baseUrl: string = environment.baseUrl;
 
   //public error:boolean = false;
 
@@ -48,14 +49,8 @@ export class StudentService {
   // Agrega nuevo estudiante
   addStudent(newStudent:Student){
 
-    this.httpClient.post<StudentResponse>(`${this.baseUrl}/student/add`,newStudent)
-                   .subscribe(res =>{
-                      if(res.Success === true){
-                          
-                      }  
-                   },(err) =>{
-                      console.log('Error =>',err)
-                   });
+    this.httpClient.post<StudentResponse>(`${this.baseUrl}/student/add`,newStudent);
+                  
   }
 
   // Actualiza un estudiante
@@ -76,7 +71,7 @@ export class StudentService {
   }
 
   // Obtiene el historial del dia
-  searchAssist(content:date):Observable<any>{
+  searchAssist(content:date):Observable<ListStudentResponse>{
 
     return this.httpClient.post<ListStudentResponse>(`${this.baseUrl}/assist/getassists`,content);
 

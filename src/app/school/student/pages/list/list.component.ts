@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/app/school/services/student.service';
 import { StudentRes } from '../../interfaces/student-response.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { MessageDeleteDialogComponent } from 'src/app/school/student/component/message-delete-dialog/message-delete-dialog.component';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styles: [
-    
-    `
+  styles: [`
       .btn{
         margin-right: 10px
       }
@@ -15,15 +16,15 @@ import { StudentRes } from '../../interfaces/student-response.interface';
       form{
         margin-bottom: 20px;
       }
-    `
-  ]
+    `]
 })
 
 
 export class ListComponent implements OnInit  {  
 
   // Constructor
-  constructor(private studentService: StudentService) { }
+  constructor(private studentService: StudentService,
+              private dialog: MatDialog) { }
 
   ngOnInit(){
     this.fillList();
@@ -31,8 +32,8 @@ export class ListComponent implements OnInit  {
 
   listStudent:StudentRes[] = [];
   termino:string=""
-  notFound:boolean = false;
-  errorMessage!:string
+  showMessage:boolean = false;
+  message!:string
 
   // Carga los estudiantes
   fillList(){
@@ -42,12 +43,24 @@ export class ListComponent implements OnInit  {
   }
 
   // Para remover un usuario
-  removeStudent(id:number){
-    this.studentService.removeStudent(id).subscribe(resp =>{
-      console.log(resp)
+  removeStudent(id:number,name:string,lastname:string){
+    // Abre el diablogo
+    const result = this.dialog.open(MessageDeleteDialogComponent,{
+      width: '350px',
+      data: name.concat(" ",lastname) // Se envia el nombre del estudiante
     });
-    location.reload();
 
+    // Evaluamos la respuesta del dialogo
+    result.afterClosed().subscribe(
+      resp =>{
+        if(resp){
+          this.studentService.removeStudent(id).subscribe(resp =>{
+            location.reload();
+            console.log(resp);
+          })
+        }
+      }
+    )
   }
 
   // Realiza la busqueda
@@ -56,19 +69,17 @@ export class ListComponent implements OnInit  {
       this.fillList();
     else
       this.studentService.searchStudent(termino).subscribe(resp =>{
-        console.log(resp.Data)
         this.listStudent = resp.Data;
       }, err => {
         if(err.error.Success === false){
-          this.notFound = true;
-          this.errorMessage = err.error.Mensaje;
+          this.showMessage = true;
+          this.message = err.error.Mensaje;
         }
-        
       })
     }
 
     reset(){
-      this.notFound = false
+      this.showMessage = false
     }
 
 

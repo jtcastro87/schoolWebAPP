@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { User, UserResponse } from './interface/user.interface';
 
 @Injectable({
@@ -10,8 +11,8 @@ export class AuthService {
 
   constructor( private httpClient: HttpClient) { }
 
-  private baseUrl:string = 'http://192.168.122.181:5000/api';
-
+  private baseUrl: string = environment.baseUrl;
+  
   // Obtiene la lista de todos los estudiantes
   login(user:User){
 

@@ -6,6 +6,7 @@ import { AssistComponent } from "./pages/assist/assist.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { ListComponent } from "./pages/list/list.component";
 import { GradeComponent } from "./pages/grade/grade.component";
+import { NotFundPageComponent } from "src/app/not-fund-page/not-fund-page.component";
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
       { path: 'add', component: AddStudentComponent },
       { path: 'edit/:id', component: AddStudentComponent },
       { path: ':id', component: HomeComponent },
-      { path: '**', redirectTo: 'list' }
+      { path: '**', redirectTo: 'list', }
     ]
 
   }

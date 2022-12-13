@@ -19,15 +19,14 @@ export class AssistComponent implements OnInit {
 
   ngOnInit(): void {
     this.fillList();
-  }
- 
+  } 
 
   listStudent:StudentRes[] = [];
   dateList:ListRes[] = [];
-  date:string ="";
-  errorMessage:string = "No data to display";
-  notFound: boolean = false;
-  show:boolean = false;
+  date!:string;
+  message:string = "No data to display";
+  showMessage!: boolean;
+  showListAssist:boolean = false;
 
    // Carga los estudiantes
    fillList(){
@@ -57,19 +56,21 @@ export class AssistComponent implements OnInit {
     }
 
    this.studentService.searchAssist(content).subscribe(resp =>{
-      if(resp.Data){
-        this.notFound = false;
-        this.show = true;
+      
+      if(resp.Data !=null ){
+        this.showListAssist = true;
         this.dateList = resp.Data;
-        console.log(this.dateList);
       }
       else{
-        this.show = false;
-        this.notFound = true;
-      }
-      
-                      
+        this.showListAssist = false;
+        this.showMessage = true;
+      }                  
     })
+  }
+
+  // Se ejecuta al cambiar la fecha en el input
+  reset(){
+    this.showMessage = false
   }
 
 

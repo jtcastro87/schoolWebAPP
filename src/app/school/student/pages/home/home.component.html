@@ -1,52 +1,12 @@
 <mat-sidenav-container fullscreen>
-  <!-- sidebar -->
-  <mat-sidenav #sidenav mode="push">
-
-    <mat-toolbar color="primary">
-      <span>menu</span>
-      <button mat-icon-button
-              (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-
-      
-    </mat-toolbar>
-
-    <mat-nav-list>
-      <a routerLink="./list"
-         mat-list-item
-         (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>home</mat-icon>
-        <span>Home</span>
-      </a>
-
-      <a routerLink="./add"
-         mat-list-item
-         (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>add</mat-icon>
-        <span>Add new student</span>
-      </a>     
-      
-      <a routerLink="./assist"
-         mat-list-item
-         (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>check</mat-icon>
-        <span>Assist</span>
-      </a>
-
-      <a routerLink="./grade"
-         mat-list-item
-         (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>checklist</mat-icon>
-        <span>Grades</span>
-      </a>
-
-      
-    </mat-nav-list>
-  </mat-sidenav>
+  <!-- sidebar lateral -->    
+  <mat-sidenav #sidenav mode="over">
+    <app-sidebar (sidenav)="sidenav.toggle()" ></app-sidebar>
+  </mat-sidenav> 
+    
   <!-- end sidebar -->
 
-  <!-- navbar -->
+  <!-- navbar horizontal -->
   <mat-toolbar class=".barra">
     <button mat-icon-button
             (click)="sidenav.toggle()">
