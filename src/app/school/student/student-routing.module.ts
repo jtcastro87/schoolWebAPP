@@ -19,8 +19,8 @@ const routes: Routes = [
       { path: 'grade', component: GradeComponent },
       { path: 'add', component: AddStudentComponent },
       { path: 'edit/:id', component: AddStudentComponent },
-      { path: ':id', component: HomeComponent },
-      { path: '**', redirectTo: 'list', }
+      { path: '', redirectTo: 'list', pathMatch:'full' } ,     
+      { path: '**', component: NotFundPageComponent, pathMatch:'full'}
     ]
 
   }
