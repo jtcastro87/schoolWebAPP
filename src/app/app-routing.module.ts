@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren:() => import('./school/student/student.module').then(m => m.StudentModule)
   },  
   {
+    path: '',
+    redirectTo: 'auth', pathMatch: 'full'
+  },
+  {
     path: '404',
     component: NotFundPageComponent
   },

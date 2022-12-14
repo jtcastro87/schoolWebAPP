@@ -27,7 +27,8 @@
       <th scope="col" >Name</th>
       <th scope="col" >Last name</th>
       <th scope="col" >Gender</th>
-      <th scope="col" >Age</th>    
+      <th scope="col" >Age</th>
+      <th colspan="2">Actions</th>    
     </tr>
   </thead>
 
@@ -37,10 +38,10 @@
       <td class="col">{{ item.Student_name }}</td>
       <td class="col">{{item.Student_lastname}}</td>
       <td class="col">{{item.Gender}}</td>
-      <td class="col">{{item.Age}}</td>      
-      <td class="col" >
+      <td class="col-2">{{item.Age}}</td>      
+      <td >
         <a 
-            class="btn btn-primary btn-sm" 
+            class="btn btn-success btn-sm" 
             [routerLink]="['/student/edit/',item.Student_id]" >Editar
         </a>
 
@@ -49,8 +50,7 @@
                 class="btn btn-danger btn-sm">
                 Remove</a>
       </td>
-      <td>       
-      </td>
+      
     </tr>
   </tbody>
 </table>

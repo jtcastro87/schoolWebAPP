@@ -3,7 +3,7 @@
  height: 100%;
  max-height: 550px;
  display: flex;
- flex-direction: row;
+ flex-direction: column;
  justify-content: center;
  align-items: center;
  align-content: center;
@@ -11,7 +11,7 @@
 }
 
 .formulario{ 
-    width: 40%;  
+    width: 40%;
 }
 
 input,label{
@@ -20,4 +20,14 @@ input,label{
 
 button{
     width: 100%;
+    margin-bottom: 15px;
+}
+
+p.invalid{
+    color:#ff0000;
+}
+
+.message{
+    display: block;
+    
 }

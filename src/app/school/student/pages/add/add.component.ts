@@ -46,7 +46,6 @@ ngOnInit(): void {
         this.title = "Edit student"       
         this.student = resp.Data;
         console.log(this.student)
-        this.nameButtom = "Save"; 
       })
 }
 
@@ -60,7 +59,6 @@ ngOnInit(): void {
   }
 
   private edit:boolean = false;
-  public nameButtom: string = "Add";
   save:boolean = false;
   title:string = "Add new student";   
 

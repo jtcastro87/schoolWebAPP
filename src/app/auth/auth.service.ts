@@ -9,14 +9,15 @@ import { User, UserResponse } from './interface/user.interface';
 })
 export class AuthService {
 
+  // Constructor
   constructor( private httpClient: HttpClient) { }
 
+  // Base URL
   private baseUrl: string = environment.baseUrl;
   
   // Obtiene la lista de todos los estudiantes
-  login(user:User){
+  login(user:User):Observable<UserResponse>{
 
-    return this.httpClient.post<UserResponse>(`${this.baseUrl}/teacher/login`,user)
-    
+    return this.httpClient.post<UserResponse>(`${this.baseUrl}/teacher/login`,user)    
   }
 }
