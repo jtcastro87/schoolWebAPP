@@ -6,3 +6,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacer{
     flex: 1 1 auto;
   }
+
+  .header-top{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  .col-left h1{
+    margin-bottom: 0;
+    line-height: 36px;
+  }
+
+  .col-right{
+    text-align: right;
+    margin-bottom: 0;
+  }

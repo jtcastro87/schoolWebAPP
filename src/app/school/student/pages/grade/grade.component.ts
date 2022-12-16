@@ -30,10 +30,14 @@ export class GradeComponent implements OnInit {
   
   noteList:GradeRes[] = [];
   students:StudentRes[] = []; 
-  show:boolean = false;
+  //show:boolean = false;
   agregado:boolean = false;
-
   valueSelect:string = "0" ;
+
+  //alert
+  message!:string;
+  typeAlert!:string;
+  showAlert!:boolean;  
 
   grade:Grade = {
     Student_id:'0',

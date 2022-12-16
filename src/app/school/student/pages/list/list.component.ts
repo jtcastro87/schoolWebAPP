@@ -19,7 +19,6 @@ import { stringify } from 'querystring';
     `]
 })
 
-
 export class ListComponent implements OnInit  {  
 
   // Constructor
@@ -32,8 +31,11 @@ export class ListComponent implements OnInit  {
 
   listStudent:StudentRes[] = [];
   termino:string=""
-  showMessage:boolean = false;
-  message!:string
+
+  // Alert
+  showAlert:boolean = false;
+  typeAlert!:string;
+  message!:string;
 
   // Carga los estudiantes
   fillList(){
@@ -72,14 +74,15 @@ export class ListComponent implements OnInit  {
         this.listStudent = resp.Data;
       }, err => {
         if(err.error.Success === false){
-          this.showMessage = true;
+          this.typeAlert = "warning";
           this.message = err.error.Mensaje;
+          this.showAlert = true;
         }
       })
     }
 
     reset(){
-      this.showMessage = false
+      this.showAlert = false;
     }
 
 

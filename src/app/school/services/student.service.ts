@@ -47,9 +47,9 @@ export class StudentService {
   }
 
   // Agrega nuevo estudiante
-  addStudent(newStudent:Student){
+  addStudent(newStudent:Student):Observable<StudentResponse>{
 
-    this.httpClient.post<StudentResponse>(`${this.baseUrl}/student/add`,newStudent);
+    return this.httpClient.post<StudentResponse>(`${this.baseUrl}/student/add`,newStudent);
                   
   }
 

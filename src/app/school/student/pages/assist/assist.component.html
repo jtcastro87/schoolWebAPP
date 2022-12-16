@@ -1,4 +1,11 @@
-<h1>Assistance of the day</h1>
+<div class="header-top">
+    <div class="col-left">
+        <h1>Assistance of the day</h1>
+    </div>
+    <div class="col-right">
+        <app-button-back></app-button-back>
+    </div>
+</div>
 <hr>
 <div class="row">
     <!-- Pase de lista -->
@@ -43,8 +50,10 @@
 
         <!-- Para los mensajes -->
         <app-alert
-                   [showMessage]="showMessage"
-                   [message]="message" ></app-alert>
+                   [showAlert]="showAlert"
+                   [typeAlert]="typeAlert"
+                   [message]="message" >
+        </app-alert>
         <!-- Fin de los mensajes -->
 
         <!-- Muestra el resumen del pase de lista -->

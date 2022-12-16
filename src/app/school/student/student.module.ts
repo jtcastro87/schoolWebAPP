@@ -13,6 +13,7 @@ import { FormsModule } from "@angular/forms";
 import { ChangeToLetterPipe } from './pipe/change-to-letter.pipe';
 import { SharedModule } from "src/app/shared/shared.module";
 import { AlertComponent } from "./component/alert/alert.component";
+import { ButtonBackComponent } from "./component/button-back/button-back.component";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AlertComponent } from "./component/alert/alert.component";
     AssistComponent,
     GradeComponent,
     ChangeToLetterPipe,
-    AlertComponent
+    AlertComponent,
+    ButtonBackComponent
   ],
   imports:[
     CommonModule,

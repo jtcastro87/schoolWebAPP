@@ -13,6 +13,8 @@ export class AlertComponent {
 
   @Input()message!:string;
   
-  @Input()showMessage!: boolean;
+  @Input()showAlert!: boolean;
+
+  @Input() typeAlert!:string;
 
 }

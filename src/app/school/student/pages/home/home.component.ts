@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 
 @Component({
@@ -9,8 +10,12 @@ import { Router } from '@angular/router';
 
       .container{
          margin-top: 15px;
-      }     
-
+      }
+      div.user{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+      }  
     `]
 })
 
@@ -18,11 +23,18 @@ import { Router } from '@angular/router';
 export class HomeComponent  {
 
   // Constructor
-  constructor(private route:Router) { }
+  constructor(private route:Router,
+              private authService: AuthService) { }
 
   // Metodo para cerrar sesion
   logout(){
     this.route.navigate(['./auth'])
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+  }
+
+  get user(){
+    return this.authService.user;
   }
 
 

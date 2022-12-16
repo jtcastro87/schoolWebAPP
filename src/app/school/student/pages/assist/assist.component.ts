@@ -25,13 +25,13 @@ export class AssistComponent implements OnInit {
   dateList:ListRes[] = [];
   date!:string;
   message:string = "No data to display";
-  showMessage!: boolean;
+  typeAlert!:string;
+  showAlert!: boolean;
   showListAssist:boolean = false;
 
    // Carga los estudiantes
    fillList(){
     this.studentService.getStudent().subscribe(resp =>{
-      
       this.listStudent = resp.Data
     });
   }
@@ -43,9 +43,7 @@ export class AssistComponent implements OnInit {
       student_id: id,
       present: present
     }
-    this.studentService.addAssist(assist).subscribe(resp =>{
-      
-    })
+    this.studentService.addAssist(assist);
   }
 
   // Envia la fecha de busqueda
@@ -63,14 +61,15 @@ export class AssistComponent implements OnInit {
       }
       else{
         this.showListAssist = false;
-        this.showMessage = true;
+        this.typeAlert = "warning";
+        this.showAlert = true;
       }                  
     })
   }
 
   // Se ejecuta al cambiar la fecha en el input
   reset(){
-    this.showMessage = false
+    this.showAlert = false;
   }
 
 
